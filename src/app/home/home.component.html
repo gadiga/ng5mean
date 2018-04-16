@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="columns small-12 medium-6 large-4 posts" *ngFor="let post of posts">
+    <div class="post-container">
+      <!--container-starts-->
+      <div class="row">
+        <!--row-starts-->
+        <div class="columns small-12 large-10">
+          <a routerLink="/details/{{post._id}}" class="post-title">{{post.title}}</a>
+        </div>
+        <div class="columns small-12 large-2 show-for-large">
+            <app-jump-arrow></app-jump-arrow>
+        </div>
+        <!--row-ends-->
+      </div>
+      <p>{{post.description | length: 50}}</p>
+      <a routerLink="/details/{{post._id}}" class="cta-btn btn2">More Info</a>
+      <!--container-ends-->
+    </div>
+  </div>
+</div>

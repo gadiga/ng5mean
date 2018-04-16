@@ -1,0 +1,34 @@
+<div class="body-blur">
+  <div class="row">
+    <h1>Posts - Tutorial</h1>
+  </div>
+  <form [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
+    <div class="row">
+      <div class="columns small-12 medium-6">
+        <label>Tutorial Title
+          <input type="text" name="title" [formControl]="postForm.controls['title']">
+          <div class="alert" *ngIf="!postForm.controls['title'].valid && postForm.controls['title'].touched">
+            You must specify a title
+          </div>
+        </label>
+      </div>
+      <div class="columns small-12 medium-6">
+        <label>URL
+          <input type="url" name="url" [formControl]="postForm.controls['url']">
+          <div class="alert" *ngIf="!postForm.controls['url'].valid && postForm.controls['url'].touched">
+            You must specify a URL
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="row columns">
+      <label>Description
+        <textarea name="description" [formControl]="postForm.controls['description']">Description here...</textarea>
+        <div class="alert" *ngIf="!postForm.controls['description'].valid && postForm.controls['description'].touched">
+          You must specify a description
+        </div>
+      </label>
+      <input type="submit" class="cta-btn filled" value="Post Tutorial" [disabled]="!postForm.valid">
+    </div>
+  </form>
+</div>
